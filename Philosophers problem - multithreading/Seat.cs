@@ -7,14 +7,12 @@ using System.Threading.Tasks;
 
 namespace Philosophers_problem___multithreading
 {
-    class Program
+    class Seat
     {
-        static void Main(string[] args)
+        public Semaphore semaphore;
+        public Seat(int numberOfSeats)
         {
-            PhilosophersDining philosophersDining = new PhilosophersDining(15);
-            philosophersDining.Dining();
-
-            Console.ReadKey();
+            semaphore = new Semaphore(numberOfSeats - 1, numberOfSeats - 1);
         }
     }
 }
